@@ -1,0 +1,55 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%:
+	dh $@
+
+
+
+override_dh_auto_configure:
+	./bootstrap.sh
+
+	touch configure.in && \
+	touch aclocal.m4 && \
+	touch configure
+
+	autoreconf -fi
+
+	mkdir mtr && cd mtr && CFLAGS=-I.. ../configure $(shell dpkg-buildflags --export=configure >/dev/null 2>&1 && dpkg-buildflags --export=configure) $(confflags) --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin
+
+	mkdir mtr-tiny && cd mtr-tiny && CFLAGS=-I.. ../configure $(shell dpkg-buildflags --export=configure >/dev/null 2>&1 && dpkg-buildflags --export=configure) $(confflags) --prefix=`pwd`/debian/tmp/usr --mandir=`pwd`/debian/tmp/usr/share/man --sbindir=`pwd`/debian/tmp/usr/bin --without-gtk
+
+
+
+override_dh_auto_build:
+	make -C mtr
+	make -C mtr-tiny
+
+
+
+override_dh_auto_clean:
+	rm -f Makefile.in
+	rm -f aclocal.m4
+	rm -f configure
+	rm -f configure.in
+	rm -rf mtr
+	rm -rf mtr-tiny
+	dh_auto_clean
+
+
+
+override_dh_installdirs-arch:
+	dh_installdirs -a
+	$(MAKE) -C mtr-tiny prefix=`pwd`/debian/mtr-tiny/usr install
+	mv mtr-tiny/debian/tmp/usr/bin/mtr debian/mtr-tiny/usr/bin/
+	$(MAKE) -C mtr prefix=`pwd`/debian/mtr/usr install
+	mv mtr/debian/tmp/usr/bin/mtr debian/mtr/usr/bin/
+
+override_dh_installchangelogs-arch:
+	dh_installchangelogs -a NEWS
+
+
+override_dh_fixperms-arch:
+	dh_fixperms -a
