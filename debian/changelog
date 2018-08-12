@@ -1,3 +1,45 @@
+mtr (0.92-2) unstable; urgency=medium
+
+  * Bump DH to 11
+  * Bump Standards-Version to 4.2.0
+  * Ack NMU, thanks to Niels Thykier (closes: #903182)
+  * Move packaging to salsa.d.o
+  * Update my email to @debian.org
+  * d/copyright: update debian/* entry
+  * d/p/manpage_typos.patch: new patch to fix typos
+
+ -- Samuel Henrique <samueloph@debian.org>  Sun, 12 Aug 2018 09:58:39 -0300
+
+mtr (0.92-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Remove redundant debian/*manpages files.  The upstream build
+    system correctly installs the manpages by default and the
+    manpages had incorrect path.  (closes: #903182)
+  * Set Rules-Requires-Root to no as mtr does not need (fake)root
+    during the binary targets.
+
+ -- Niels Thykier <niels@thykier.net>  Mon, 06 Aug 2018 20:33:06 +0000
+
+mtr (0.92-1) unstable; urgency=medium
+
+  [ Samuel Henrique ]
+  * New upstream release
+  * Bump Standards-Version to 4.1.0
+  * d/control:
+    - add Rhonda to uploaders
+  * d/rules:
+    - use dh_auto_configure, fixes FTCBFS, patch by Helmut Grohne
+      (closes: #839879)
+  * d/control: remove 'extra' priority, inherit optional from source
+
+  [ Robert Woodcock ]
+  * d/patches: install_on_usrbin: install on bin instead of sbin
+  * d/*.manpages: create files for mtr-* packages
+  * d/rules: create tarball-version
+
+ -- Robert Woodcock <rcw@debian.org>  Wed, 01 Nov 2017 19:48:40 -0700
+
 mtr (0.87-1) unstable; urgency=medium
 
   * Correct typos in the postinst and package description

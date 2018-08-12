@@ -2,19 +2,20 @@ Source: mtr
 Section: net
 Priority: optional
 Maintainer: Robert Woodcock <rcw@debian.org>
-Uploaders: Samuel Henrique <samueloph@gmail.com>
-Standards-Version: 3.9.8
+Uploaders: Rhonda D'Vine <rhonda@debian.org>,
+           Samuel Henrique <samueloph@debian.org>
+Standards-Version: 4.2.0
 Homepage: http://www.bitwizard.nl/mtr/
 Build-Depends: automake,
-               debhelper (>= 10),
+               debhelper (>= 11),
                libgtk2.0-dev,
                libncurses-dev
-Vcs-Git: https://anonscm.debian.org/git/collab-maint/mtr.git
-Vcs-Browser: https://anonscm.debian.org/git/collab-maint/mtr.git
+Vcs-Browser: https://salsa.debian.org/debian/mtr
+Vcs-Git: https://salsa.debian.org/debian/mtr.git
+Rules-Requires-Root: no
 
 Package: mtr
 Architecture: any
-Priority: extra
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Breaks: mtr-tiny,
