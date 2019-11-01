@@ -1,3 +1,9 @@
+mtr (0.87-1pexip1) pexip; urgency=medium
+
+  * Prepare Pexip packaging
+
+ -- Alan Ford <alan@pexip.com>  Fri, 01 Nov 2019 13:35:14 +0000
+
 mtr (0.87-1) unstable; urgency=medium
 
   * Correct typos in the postinst and package description

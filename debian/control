@@ -1,8 +1,9 @@
 Source: mtr
 Section: net
 Priority: optional
-Maintainer: Robert Woodcock <rcw@debian.org>
-Uploaders: Samuel Henrique <samueloph@gmail.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Robert Woodcock <rcw@debian.org>
+XSBC-Pexip-Original-Uploaders: Samuel Henrique <samueloph@gmail.com>
 Standards-Version: 3.9.8
 Homepage: http://www.bitwizard.nl/mtr/
 Build-Depends: automake,
@@ -11,6 +12,7 @@ Build-Depends: automake,
                libncurses-dev
 Vcs-Git: https://anonscm.debian.org/git/collab-maint/mtr.git
 Vcs-Browser: https://anonscm.debian.org/git/collab-maint/mtr.git
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: mtr
 Architecture: any
