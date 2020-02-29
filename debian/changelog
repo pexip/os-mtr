@@ -1,3 +1,9 @@
+mtr (0.92-2pexip1) pexip; urgency=medium
+
+  * Migrate to Buster
+
+ -- Vincent Sanders <vince@pexip.com>  Sat, 29 Feb 2020 17:53:54 +0000
+
 mtr (0.92-2) unstable; urgency=medium
 
   * Bump DH to 11
