@@ -4,12 +4,13 @@ Priority: optional
 Maintainer: Robert Woodcock <rcw@debian.org>
 Uploaders: Rhonda D'Vine <rhonda@debian.org>,
            Samuel Henrique <samueloph@debian.org>
-Standards-Version: 4.2.0
-Homepage: http://www.bitwizard.nl/mtr/
+Standards-Version: 4.5.0
+Homepage: https://www.bitwizard.nl/mtr/
 Build-Depends: automake,
-               debhelper (>= 11),
+               debhelper-compat (= 13),
                libgtk2.0-dev,
-               libncurses-dev
+               libncurses-dev,
+               libjansson-dev
 Vcs-Browser: https://salsa.debian.org/debian/mtr
 Vcs-Git: https://salsa.debian.org/debian/mtr.git
 Rules-Requires-Root: no

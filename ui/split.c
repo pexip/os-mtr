@@ -15,9 +15,9 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 #include "config.h"
@@ -92,7 +92,7 @@ void split_redraw(
      */
     for (at = 0; at < max; at++) {
         addr = net_addr(at);
-        if (addrcmp((void *) addr, (void *) &ctl->unspec_addr, ctl->af)) {
+        if (addrcmp(addr, &ctl->unspec_addr, ctl->af)) {
             char str[256], *name;
             if (!(name = dns_lookup(ctl, addr)))
                 name = strlongip(ctl, addr);
@@ -166,7 +166,8 @@ int split_keyaction(
     tv.tv_usec = 0;
 
     if (select(1, &readfds, NULL, NULL, &tv) > 0) {
-        read(0, &c, 1);
+        if (read(0, &c, 1) <= 0) 
+          return ActionQuit;
     } else
         return 0;
 #endif

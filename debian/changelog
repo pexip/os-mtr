@@ -1,3 +1,48 @@
+mtr (0.94-1+deb11u1) bullseye; urgency=medium
+
+  * d/control: Compile with json support with jansson (closes: #986534)
+
+ -- Samuel Henrique <samueloph@debian.org>  Sat, 11 Sep 2021 22:16:39 +0100
+
+mtr (0.94-1) unstable; urgency=medium
+
+  [ Samuel Henrique ]
+  * New upstream version 0.94
+  * Bump DH to 13
+
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Samuel Henrique <samueloph@debian.org>  Sun, 27 Sep 2020 18:02:26 +0100
+
+mtr (0.93-2) unstable; urgency=medium
+
+  * Bump Standards Version to 4.5.0
+  * d/rules: Change override_dh_auto_build to allow debhelper to use
+    deblheper flags
+  * Use debhelper-compat instead of debhelper
+  * Add salsa-ci.yml for pipelines
+  * Add gbp.conf
+
+ -- Samuel Henrique <samueloph@debian.org>  Sun, 19 Apr 2020 16:54:14 +0100
+
+mtr (0.93-1) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/copyright: Use https protocol in Format field
+  * d/changelog: Remove trailing whitespaces
+
+  [ Samuel Henrique ]
+  * New upstream version 0.93
+  * Bump DH level to 12
+  * Bump Standards-Version to 4.4.0
+  * d/docs: README is now in markdown
+  * d/p/manpage_typos.patch: remove, applied upstream
+
+ -- Samuel Henrique <samueloph@debian.org>  Tue, 20 Aug 2019 22:26:21 +0100
+
 mtr (0.92-2) unstable; urgency=medium
 
   * Bump DH to 11
@@ -435,8 +480,8 @@ mtr (0.34-1) unstable; urgency=low
 
 mtr (0.28-0.2) frozen unstable; urgency=low
 
-  * Rebuilt with libgtk1 (1.0.6) to circumvent problems due to 
-    incompatibilities between the frozen and unstable versions of libgtk1.1 . 
+  * Rebuilt with libgtk1 (1.0.6) to circumvent problems due to
+    incompatibilities between the frozen and unstable versions of libgtk1.1 .
     (Fixes #29160, #29221, #29332).
 
  -- J.H.M. Dassen (Ray) <jdassen@wi.LeidenUniv.nl>  Thu, 12 Nov 1998 14:22:10 +0100
