@@ -11,9 +11,9 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 #include "config.h"
@@ -193,8 +193,6 @@ static char *split_txtrec(
     if (i > ctl->ipinfo_max)
         ctl->ipinfo_max = i;
     if (ctl->ipinfo_no >= i) {
-        if (ctl->ipinfo_no >= ctl->ipinfo_max)
-            ctl->ipinfo_no = 0;
         return (*items)[0];
     } else
         return (*items)[ctl->ipinfo_no];
@@ -309,23 +307,21 @@ char *fmt_ipinfo(
 int is_printii(
     struct mtr_ctl *ctl)
 {
-    return ((ctl->ipinfo_no >= 0) && (ctl->ipinfo_no != ctl->ipinfo_max));
+    return (ctl->ipinfo_no >= 0);
 }
 
 void asn_open(
     struct mtr_ctl *ctl)
 {
-    if (ctl->ipinfo_no >= 0) {
-        DEB_syslog(LOG_INFO, "hcreate(%d)", IIHASH_HI);
-        if (!(iihash = hcreate(IIHASH_HI)))
-            error(0, errno, "ipinfo hash");
-    }
+    DEB_syslog(LOG_INFO, "hcreate(%d)", IIHASH_HI);
+    if (!(iihash = hcreate(IIHASH_HI)))
+        error(0, errno, "ipinfo hash");
 }
 
 void asn_close(
     struct mtr_ctl *ctl)
 {
-    if ((ctl->ipinfo_no >= 0) && iihash) {
+    if (iihash) {
         DEB_syslog(LOG_INFO, "hdestroy()");
         hdestroy();
         iihash = 0;

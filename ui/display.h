@@ -11,9 +11,9 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 #include <netinet/in.h>
@@ -41,7 +41,9 @@ enum {
     DisplayXML,
     DisplayCSV,
     DisplayTXT,
-    DisplayJSON
+#ifdef HAVE_JANSSON
+    DisplayJSON,
+#endif
 };
 
 enum {
@@ -74,10 +76,13 @@ extern void display_rawping(
 extern void display_rawhost(
     struct mtr_ctl *ctl,
     int hostnum,
-    ip_t * ip_addr);
+    ip_t *ip_addr,
+    struct mplslen *mpls);
 extern int display_keyaction(
     struct mtr_ctl *ctl);
 extern void display_loop(
     struct mtr_ctl *ctl);
 extern void display_clear(
     struct mtr_ctl *ctl);
+extern char *host_error_to_string(
+    int err);
