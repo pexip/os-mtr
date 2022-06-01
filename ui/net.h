@@ -11,9 +11,9 @@
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
 /*  Prototypes for functions in net.c  */
@@ -55,6 +55,8 @@ extern int net_min(
 extern int net_last(
     int at);
 extern ip_t *net_addr(
+    int at);
+extern int net_err(
     int at);
 extern void *net_mpls(
     int at);
@@ -115,12 +117,8 @@ extern void net_save_return(
     int ms);
 
 extern int addrcmp(
-    char *a,
-    char *b,
-    int af);
-extern void addrcpy(
-    char *a,
-    char *b,
+    void *a,
+    void *b,
     int af);
 
 extern void net_add_fds(
