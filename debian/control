@@ -5,7 +5,7 @@ Maintainer: Pexip AS <packaging@pexip.com>
 XSBC-Pexip-Original-Maintainer: Robert Woodcock <rcw@debian.org>
 XSBC-Pexip-Original-Uploaders: Rhonda D'Vine <rhonda@debian.org>,
            Samuel Henrique <samueloph@debian.org>
-Standards-Version: 4.5.0
+Standards-Version: 4.6.0
 Homepage: https://www.bitwizard.nl/mtr/
 Build-Depends: automake,
                debhelper-compat (= 13),
