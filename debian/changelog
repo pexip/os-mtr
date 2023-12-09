@@ -1,3 +1,9 @@
+mtr (0.95-1pexip2) pexip-bookworm; urgency=medium
+
+  * Bookworm build for product distribution
+
+ -- Mark Hymers <mark.hymers@pexip.com>  Sat, 09 Dec 2023 22:56:36 +0000
+
 mtr (0.95-1pexip1) pexip-bookworm; urgency=medium
 
   * Initial bookworm build
